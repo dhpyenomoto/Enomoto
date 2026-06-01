@@ -12,6 +12,29 @@ python3 -m http.server 8000
 # → http://localhost:8000 にアクセス
 ```
 
+## Vercel で公開する
+
+ビルド不要の静的サイトなので、そのままデプロイできます。
+
+### 方法A: ダッシュボードからインポート（おすすめ）
+
+1. [vercel.com](https://vercel.com) にログイン
+2. **Add New → Project** からこの GitHub リポジトリを選択
+3. Framework Preset は **Other**（ビルドコマンド・出力ディレクトリは空のまま）
+4. **Deploy** を押すだけ。`https://<プロジェクト名>.vercel.app` で公開されます
+
+以降はこのリポジトリへ push するたびに自動で再デプロイされます。
+
+### 方法B: Vercel CLI
+
+```bash
+npm i -g vercel
+vercel        # プレビュー公開
+vercel --prod # 本番公開
+```
+
+> `vercel.json` で `cleanUrls` を有効にしているため、`index.html` は `/` で配信されます。
+
 ## 機能
 
 - **盤面サイズの切り替え**: 3×3 / 4×4 / 5×5
